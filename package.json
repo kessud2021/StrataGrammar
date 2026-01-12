@@ -1,0 +1,30 @@
+{
+  "name": "strata-grammar",
+  "version": "1.0.0",
+  "description": "GitHub Linguist grammar definition for the Strata programming language",
+  "author": "kessud2021",
+  "license": "MIT",
+  "keywords": [
+    "strata",
+    "grammar",
+    "linguist",
+    "syntax-highlighting",
+    "language-definition"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kessud2021/StrataGrammar.git"
+  },
+  "grammars": [
+    {
+      "language": "Strata",
+      "scopeName": "source.str",
+      "path": "./grammars/strata.cson"
+    },
+    {
+      "language":  "Strata",
+      "scopeName": "source.str",
+      "path": "./grammars/strata.json"
+    }
+  ]
+}
