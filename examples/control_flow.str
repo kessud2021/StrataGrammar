@@ -1,0 +1,26 @@
+// Control flow structures
+import io from std::io
+
+func checkNumber(num: int) => string {
+  if (num > 0) {
+    return "positive"
+  }
+  else {
+    return "non-positive"
+  }
+}
+
+func countToTen() => void {
+  let i: int = 0
+  while (i < 10) {
+    io.print(i)
+    i = i + 1
+  }
+}
+
+func main() => int {
+  let result: string = checkNumber(5)
+  io.print(result)
+  countToTen()
+  return 0
+}
