@@ -1,0 +1,30 @@
+// Type annotations and variable declarations
+import io from std::io
+
+func demonstrateTypes() => void {
+  // Primitive types
+  let intVal: int = 42
+  let floatVal: float = 3.14
+  let boolVal: bool = true
+  let strVal: string = "Hello, Strata!"
+  
+  // Rust-style integers
+  let u8Val: u8 = 255
+  let i32Val: i32 = -100
+  let f64Val: f64 = 2.71828
+  
+  // Collections
+  let listVal: list = [1, 2, 3]
+  let mapVal: map = {"key": "value"}
+  
+  // Optional types
+  let optVal: int? = null
+  
+  io.print(intVal)
+  io.print(strVal)
+}
+
+func main() => int {
+  demonstrateTypes()
+  return 0
+}
