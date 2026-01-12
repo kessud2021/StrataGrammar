@@ -1,0 +1,107 @@
+name: 'Strata'
+scopeName: 'source.str'
+fileTypes: ['str']
+uuid: 'D8D5E82E-3D45-46B6-B6C8-8FF6D0D9D9D9'
+
+patterns:
+  - include: '#comments'
+  - include: '#imports'
+  - include: '#declarations'
+  - include: '#keywords'
+  - include: '#strings'
+  - include: '#numbers'
+  - include: '#operators'
+  - include: '#functions'
+  - include: '#identifiers'
+
+repository:
+  comments:
+    patterns:
+      - name: 'comment.line. double-slash. str'
+        match: '//.*$'
+        captures:
+          '0': {name: 'comment.line.str'}
+
+  imports:
+    patterns:
+      - name: 'meta.import.str'
+        match: '\\b(import)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s+(from)\\s+([a-zA-Z0-9_:. /<>"]+)'
+        captures:
+          '1': {name: 'keyword.control.import. str'}
+          '2': {name: 'variable.other.module. str'}
+          '3': {name: 'keyword.control.from.str'}
+          '4':  {name: 'string.unquoted.module-path.str'}
+
+  declarations:
+    patterns: 
+      - name: 'meta.declaration.function.str'
+        match: '\\b(func)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\('
+        captures:
+          '1': {name: 'keyword. declaration.function.str'}
+          '2': {name: 'entity.name.function.str'}
+      
+      - name: 'meta. declaration.variable.str'
+        match: '\\b(let|const|var)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*:'
+        captures:
+          '1': {name: 'keyword. declaration.variable.str'}
+          '2': {name: 'variable.other.str'}
+
+  keywords:
+    patterns: 
+      - name: 'keyword. control.str'
+        match: '\\b(if|else|while|for|break|continue|return|import|from|func|let|const|var)\\b'
+      
+      - name: 'keyword. operator.str'
+        match: '\\b(and|or|not|in|is)\\b'
+      
+      - name: 'constant.language.str'
+        match: '\\b(true|false|null|undefined)\\b'
+
+  strings:
+    patterns: 
+      - name: 'string. quoted.double.str'
+        begin: '"'
+        end: '"'
+        patterns:
+          - name: 'constant.character.escape.str'
+            match: '\\\\[\\\\\"nrt]'
+
+  numbers:
+    patterns: 
+      - name: 'constant.numeric.float.str'
+        match: '\\b\\d+\\.\\d+\\b'
+      
+      - name: 'constant. numeric.integer.str'
+        match: '\\b\\d+\\b'
+
+  operators:
+    patterns: 
+      - name: 'keyword.operator.comparison.str'
+        match: '(==|!=|<=|>=|<|>)'
+      
+      - name: 'keyword.operator.logical.str'
+        match: '(&&|\\|\\||!)'
+      
+      - name: 'keyword.operator.assignment.str'
+        match: '(=|\\+=|-=|\\*=|/=|%=)'
+      
+      - name: 'keyword.operator.arithmetic.str'
+        match: '(\\+|-|\\*|/|%|\\^)'
+      
+      - name: 'keyword.operator.bitwise.str'
+        match: '(&|\\||~|\\^|<<|>>)'
+      
+      - name: 'keyword.operator.arrow.str'
+        match: '(=>)'
+
+  functions:
+    patterns: 
+      - name: 'meta.function-call.str'
+        match: '([a-zA-Z_][a-zA-Z0-9_]*)\\s*(? =\\()'
+        captures:
+          '1': {name: 'entity.name.function.str'}
+
+  identifiers:
+    patterns: 
+      - name: 'variable.other.str'
+        match: '[a-zA-Z_][a-zA-Z0-9_]*'
