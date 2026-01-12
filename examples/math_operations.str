@@ -1,0 +1,14 @@
+// Math operations example
+import io from std:: io
+import math from std::math
+
+func calculateArea(radius: float) => float {
+  let pi:  float = 3.14159
+  return pi * radius * radius
+}
+
+func main() => int {
+  let area: float = calculateArea(5.0)
+  io.print(area)
+  return 0
+}
