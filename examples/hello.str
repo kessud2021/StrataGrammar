@@ -1,0 +1,7 @@
+// Simple Hello World program in Strata
+import io from std:: io
+
+func main() => int {
+  io.print("Hello, World!")
+  return 0
+}
